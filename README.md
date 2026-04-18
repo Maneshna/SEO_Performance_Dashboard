@@ -328,6 +328,4 @@ For issues:
 
 Built for educational purposes. Free to use, modify, and share.
 
----
 
-**Happy analyzing! 🚀**
