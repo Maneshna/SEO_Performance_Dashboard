@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Database
+data/seo_dashboard.db
+*.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/cache/
+
+# Logs
+*.log
+
+# Exports
+data/exports/
+*.csv.bak
