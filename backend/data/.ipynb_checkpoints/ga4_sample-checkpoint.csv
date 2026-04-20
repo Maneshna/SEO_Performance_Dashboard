@@ -1,0 +1,16 @@
+Date,Page,Device Category,Country,Sessions,Users,Bounces,Bounce Rate,Avg. Session Duration,Conversions,Conversion Value
+2024-03-01,https://example.com/blog/seo-dashboard,desktop,United States,45,38,14,0.311,156.2,2,85.5
+2024-03-01,https://example.com/solutions/python,mobile,United States,28,22,9,0.321,92.4,1,42.0
+2024-03-01,https://example.com/products/visualization,desktop,United States,38,31,11,0.289,198.5,3,156.75
+2024-03-01,https://example.com/blog/streamlit,mobile,United States,22,19,8,0.364,87.1,0,0.0
+2024-03-01,https://example.com/solutions/bi,desktop,United States,52,41,15,0.288,212.3,4,215.0
+2024-03-02,https://example.com/blog/seo-dashboard,desktop,United States,52,42,15,0.288,168.4,3,128.5
+2024-03-02,https://example.com/solutions/python,mobile,United States,31,24,10,0.323,89.2,1,45.0
+2024-03-02,https://example.com/products/visualization,desktop,United States,41,35,12,0.293,205.6,4,198.0
+2024-03-02,https://example.com/blog/gsc,mobile,United States,18,15,7,0.389,76.3,0,0.0
+2024-03-02,https://example.com/docs/ga4-api,desktop,United States,28,23,8,0.286,145.7,1,52.0
+2024-03-03,https://example.com/blog/seo-metrics,desktop,United States,38,32,11,0.289,176.8,2,95.5
+2024-03-03,https://example.com/solutions/python,mobile,United States,25,20,7,0.280,98.6,1,48.0
+2024-03-03,https://example.com/products/visualization,desktop,United States,44,38,12,0.273,218.4,5,267.5
+2024-03-03,https://example.com/blog/streamlit,desktop,United States,35,29,10,0.286,189.2,2,89.0
+2024-03-03,https://example.com/solutions/bi,mobile,United States,31,26,11,0.355,102.5,1,67.5
