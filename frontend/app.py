@@ -11,9 +11,8 @@ from pathlib import Path
 backend_path = Path(__file__).parent.parent / "backend"
 sys.path.insert(0, str(backend_path))
 
-# ============================================================
 # PAGE CONFIGURATION
-# ============================================================
+
 
 st.set_page_config(
     page_title="SEO Performance Dashboard",
@@ -22,9 +21,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ============================================================
 # SIDEBAR - INITIALIZATION & ETL
-# ============================================================
+
 
 st.sidebar.title("🔧 Dashboard Setup")
 
@@ -79,9 +77,8 @@ if uploaded_files:
         except Exception as e:
             st.sidebar.error(f"Error importing {uploaded_file.name}: {str(e)}")
 
-# ============================================================
 # MAIN CONTENT
-# ============================================================
+
 
 st.title("📊 SEO Performance Dashboard")
 st.markdown("""
@@ -101,13 +98,13 @@ min_date, max_date = get_data_date_range()
 st.info(f"📅 Data available: {min_date} to {max_date}")
 
 st.markdown("""
-### 📖 How to Use:
+### How to Use:
 1. **Upload Data** (sidebar): Add your GSC and GA4 CSV exports
 2. **Explore Pages**: Navigate using the menu on the left
 3. **Apply Filters**: Use date ranges, countries, and devices
 4. **Find Opportunities**: Identify pages/queries to optimize
 
-### 🎯 Key Pages:
+### Key Pages:
 - **Overview**: KPI summary and health metrics
 - **Query Analysis**: Top/bottom search queries
 - **Page Analysis**: Landing page performance
