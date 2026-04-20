@@ -17,10 +17,7 @@ from src.utils import calculate_trend, forecast_linear, detect_anomaly, get_last
 from components.filters import render_date_range_filter
 from components.charts import render_trend_chart
 
-# ============================================================
 # PAGE SETUP
-# ============================================================
-
 st.set_page_config(page_title="Forecasts", page_icon="📈")
 st.title("📈 Forecasts & Trend Analysis")
 
@@ -32,9 +29,7 @@ Understand your SEO trends and make predictions:
 - **Anomalies**: Detect unusual spikes or dips
 """)
 
-# ============================================================
 # FILTERS
-# ============================================================
 
 st.subheader("Filters")
 col1, col2, col3 = st.columns(3)
@@ -60,9 +55,7 @@ with col3:
 
 st.markdown("---")
 
-# ============================================================
 # TREND ANALYSIS
-# ============================================================
 
 try:
     trends_df = get_daily_trends(start_date, end_date, metric)
@@ -70,7 +63,7 @@ try:
     if trends_df.empty:
         st.warning("No data available for trend analysis")
     else:
-        # ---- HISTORICAL TREND ----
+        #  HISTORICAL TREND \
         st.subheader("📊 Historical Trend")
         
         render_trend_chart(
@@ -80,7 +73,7 @@ try:
             title=f"Daily {metric.title()} - Historical"
         )
         
-        # ---- TREND STATISTICS ----
+        #  TREND STATISTICS 
         st.markdown("---")
         st.subheader("📈 Trend Statistics")
         
@@ -104,7 +97,7 @@ try:
             min_date = trends_df[trends_df['value'] == min_value]['date'].values[0]
             st.metric(f"Low {metric.title()}", f"{int(min_value):,}", f"on {min_date}")
         
-        # ---- TREND DIRECTION ----
+        #  TREND DIRECTION 
         st.markdown("---")
         st.subheader("🎯 Trend Direction")
         
@@ -123,7 +116,7 @@ try:
             st.error(f"📉 **Trending DOWN**: {trend_pct:.1f}% over period")
             st.markdown("Significant decline. Investigate potential issues.")
         
-        # ---- ANOMALIES ----
+        #  ANOMALIES 
         st.markdown("---")
         st.subheader("🚨 Anomalies Detected")
         
@@ -155,7 +148,7 @@ try:
         else:
             st.success("✓ No major anomalies detected")
         
-        # ---- FORECAST ----
+        #  FORECAST 
         st.markdown("---")
         st.subheader(f"🔮 Forecast - Next {forecast_days} Days")
         
@@ -248,7 +241,7 @@ try:
         Use as a guide, not a guarantee. Always monitor actual performance.
         """)
         
-        # ---- RECOMMENDATIONS ----
+        #  RECOMMENDATIONS 
         st.markdown("---")
         st.subheader("💡 Recommendations")
         
