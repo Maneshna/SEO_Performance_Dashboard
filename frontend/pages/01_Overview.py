@@ -15,16 +15,13 @@ from components.filters import render_date_range_filter
 from components.charts import render_kpi_card, render_kpi_grid, render_trend_chart
 from src.utils import format_number, format_percentage, get_date_range_label
 
-# ============================================================
 # PAGE SETUP
-# ============================================================
+
 
 st.set_page_config(page_title="Overview", page_icon="📊")
 st.title("📊 Overview - SEO Health Dashboard")
 
-# ============================================================
 # FILTERS
-# ============================================================
 
 st.subheader("Filters")
 col1, col2, col3 = st.columns(3)
@@ -40,14 +37,12 @@ with col3:
 
 st.markdown("---")
 
-# ============================================================
 # FETCH DATA
-# ============================================================
 
 try:
     kpi_data = get_kpi_summary(start_date, end_date)
     
-    # ---- KPI CARDS ----
+    #  KPI CARDS 
     st.subheader("Key Performance Indicators")
     
     metrics = {
@@ -79,7 +74,7 @@ try:
     
     render_kpi_grid(metrics)
     
-    # ---- SECONDARY METRICS (GA4) ----
+    #  SECONDARY METRICS (GA4) 
     st.markdown("---")
     st.subheader("Engagement Metrics (from GA4)")
     
@@ -114,7 +109,7 @@ try:
             icon="🎯"
         )
     
-    # ---- TREND CHARTS ----
+    #  TREND CHARTS 
     st.markdown("---")
     st.subheader("Daily Trends")
     
@@ -136,7 +131,7 @@ try:
         else:
             st.info("No trend data available for this period")
     
-    # ---- INSIGHTS ----
+    #  INSIGHTS 
     st.markdown("---")
     st.subheader("💡 Quick Insights")
     
@@ -166,7 +161,7 @@ try:
         else:
             st.warning("⏳ Low search traffic. Need SEO improvements")
     
-    # ---- EXPORT OPTION ----
+    #  EXPORT OPTION 
     st.markdown("---")
     st.markdown("### 📥 Export Report")
     

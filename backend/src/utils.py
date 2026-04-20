@@ -9,9 +9,9 @@ import numpy as np
 from typing import List, Tuple
 
 
-# ============================================================
+
 # FORMATTING UTILITIES
-# ============================================================
+
 
 def format_number(value, decimals=0):
     """Format number with thousands separator."""
@@ -36,9 +36,8 @@ def format_position(value, decimals=2):
     return f"{float(value):.{decimals}f}"
 
 
-# ============================================================
+
 # SEO CALCULATIONS
-# ============================================================
 
 def calculate_ctr_potential(current_ctr: float, average_ctr: float) -> str:
     """
@@ -51,15 +50,15 @@ def calculate_ctr_potential(current_ctr: float, average_ctr: float) -> str:
     potential = (average_ctr - current_ctr) / average_ctr * 100
     
     if potential < -20:
-        return "🔥 Outperforming average"
+        return "Outperforming average"
     elif potential < 0:
-        return "✓ Slightly above average"
+        return "Slightly above average"
     elif potential < 20:
-        return "↓ Slight opportunity"
+        return "Slight opportunity"
     elif potential < 50:
-        return "⚠ Moderate opportunity"
+        return "Moderate opportunity"
     else:
-        return "🎯 High opportunity"
+        return "High opportunity"
 
 
 def calculate_position_impact(position: float, position_ctr_map: dict = None) -> str:
@@ -119,9 +118,9 @@ def estimate_click_uplift(current_position: float, target_position: float, curre
     return max(0, additional_clicks)
 
 
-# ============================================================
+
 # DATE UTILITIES
-# ============================================================
+
 
 def get_date_range_label(start_date: str, end_date: str) -> str:
     """Format date range as readable string."""
@@ -146,9 +145,9 @@ def get_last_month() -> Tuple[str, str]:
     return (str(start_date), str(end_date))
 
 
-# ============================================================
+
 # TREND ANALYSIS
-# ============================================================
+
 
 def calculate_trend(values: List[float]) -> float:
     """
@@ -224,9 +223,9 @@ def forecast_linear(series: pd.Series, periods: int = 7) -> pd.Series:
     return pd.Series(forecast, index=range(len(series), len(series) + periods))
 
 
-# ============================================================
+
 # DATAFRAME OPERATIONS
-# ============================================================
+
 
 def safe_divide(numerator: pd.Series, denominator: pd.Series, fill_value: float = 0) -> pd.Series:
     """

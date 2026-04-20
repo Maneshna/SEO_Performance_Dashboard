@@ -15,9 +15,7 @@ from src.database import get_top_queries, get_bottom_queries, get_data_date_rang
 from components.filters import render_date_range_filter, render_metric_filter
 from components.charts import render_data_table, render_metric_table, render_bar_chart
 
-# ============================================================
 # PAGE SETUP
-# ============================================================
 
 st.set_page_config(page_title="Query Analysis", page_icon="🔍")
 st.title("🔍 Query Analysis - Search Keywords")
@@ -29,9 +27,7 @@ Every query tells a story:
 - **Opportunities**: Where you can gain the most clicks with minimal effort
 """)
 
-# ============================================================
 # FILTERS
-# ============================================================
 
 st.subheader("Filters & Settings")
 col1, col2 = st.columns(2)
@@ -44,9 +40,7 @@ with col2:
 
 st.markdown("---")
 
-# ============================================================
 # TOP QUERIES
-# ============================================================
 
 try:
     st.subheader("🏆 Top Performing Queries")
@@ -79,9 +73,7 @@ try:
     else:
         st.info("No query data available for selected period")
     
-    # ============================================================
     # BOTTOM QUERIES (OPPORTUNITIES)
-    # ============================================================
     
     st.markdown("---")
     st.subheader("⚠️ Optimization Opportunities")
@@ -123,9 +115,9 @@ try:
             orientation='h'
         )
         
-        # ---- RECOMMENDATION ----
+        #  RECOMMENDATION 
         st.markdown("---")
-        st.subheader("💡 Next Steps for Opportunities")
+        st.subheader("Next Steps for Opportunities")
         
         top_opp = bottom_queries.iloc[0]
         st.info(f"""

@@ -15,9 +15,7 @@ from src.database import get_opportunities, get_data_date_range
 from components.filters import render_date_range_filter
 from components.charts import render_data_table, render_bar_chart
 
-# ============================================================
 # PAGE SETUP
-# ============================================================
 
 st.set_page_config(page_title="Opportunities", page_icon="🎯")
 st.title("🎯 Opportunities - Quick Wins")
@@ -33,9 +31,7 @@ This metric finds keywords/pages that:
 - Can be "quick wins" with minimal ranking improvement
 """)
 
-# ============================================================
 # FILTERS
-# ============================================================
 
 st.subheader("Filters")
 col1, col2, col3 = st.columns(3)
@@ -58,9 +54,7 @@ with col3:
 
 st.markdown("---")
 
-# ============================================================
 # OPPORTUNITIES TABLE
-# ============================================================
 
 try:
     st.subheader("🚀 Top Optimization Opportunities")
@@ -76,9 +70,7 @@ try:
         
         st.dataframe(opp_display, use_container_width=True)
         
-        # ============================================================
         # VISUALIZATION
-        # ============================================================
         
         st.markdown("---")
         st.subheader("📊 Opportunity Visualization")
@@ -106,9 +98,7 @@ try:
                 orientation='h'
             )
         
-        # ============================================================
         # ACTION PLAN
-        # ============================================================
         
         st.markdown("---")
         st.subheader("💡 Action Plan - How to Capitalize")
@@ -183,9 +173,7 @@ try:
                     4. **Optimize featured snippets** - If applicable, target Position 0
                     """)
         
-        # ============================================================
         # SUMMARY
-        # ============================================================
         
         st.markdown("---")
         st.subheader("📈 Summary Statistics")

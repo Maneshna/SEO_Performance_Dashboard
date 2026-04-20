@@ -7,9 +7,9 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Optional
 
-# ============================================================
+
 # GSC (Google Search Console) Data Model
-# ============================================================
+
 @dataclass
 class GSCRecord:
     """
@@ -19,40 +19,46 @@ class GSCRecord:
     date: datetime              # YYYY-MM-DD
     query: str                  # Search query user typed
     page_url: str               # Landing page URL
-    country: str                # GEO country (e.g., "United States")
-    device: str                 # Device type (Desktop, Mobile, Tablet)
-    search_type: str            # Search type (Web, Image, Video)
+    country: str                # GEO country 
+    device: str                 # Device type 
+    search_type: str            # Search type 
     clicks: int                 # Number of clicks
-    impressions: int            # Number of impressions (search results shown)
+    impressions: int            # Number of impressions 
     ctr: float                  # Click-through rate (0.0-1.0)
     position: float             # Average position in search results
 
 
-# ============================================================
+
 # GA4 (Google Analytics 4) Data Model
-# ============================================================
+
 @dataclass
 class GA4Record:
     """
     Each row represents a landing page session metric from GA4.
     Fields match Google Analytics 4 export format.
     """
-    date: datetime              # YYYY-MM-DD
-    page_url: str               # Landing page URL
-    device: str                 # Device category (desktop, mobile, tablet)
-    country: str                # User country
-    sessions: int               # Number of sessions
-    users: int                  # Number of unique users
-    bounces: int                # Number of bounces
-    bounce_rate: float          # Bounce rate (0.0-1.0)
+    date: datetime   # YYYY-MM-DD
+    # Landing page URL
+    page_url: str 
+    # Device category 
+    device: str                
+    # User country
+    country: str
+    # Number of sessions
+    sessions: int               
+    # Number of unique users
+    users: int 
+    # Number of bounces
+    bounces: int 
+    # Bounce rate (0.0-1.0)
+    bounce_rate: float          
     avg_session_duration: float # Avg session duration in seconds
     conversions: int            # Number of conversions/goals
     conversion_value: float     # Total conversion value
 
 
-# ============================================================
 # Aggregated SEO Metrics (for dashboards)
-# ============================================================
+
 @dataclass
 class SEOMetricsSummary:
     """

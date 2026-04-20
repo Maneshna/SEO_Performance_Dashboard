@@ -15,9 +15,7 @@ from src.database import get_top_pages, get_pages_with_ga4, get_data_date_range
 from components.filters import render_date_range_filter
 from components.charts import render_data_table, render_metric_table, render_bar_chart
 
-# ============================================================
 # PAGE SETUP
-# ============================================================
 
 st.set_page_config(page_title="Page Analysis", page_icon="📄")
 st.title("📄 Page Analysis - Landing Page Performance")
@@ -29,9 +27,7 @@ Which of your pages are winning in search?
 - **Cannibalization**: Pages competing for same query
 """)
 
-# ============================================================
 # FILTERS
-# ============================================================
 
 st.subheader("Filters")
 col1, col2 = st.columns(2)
@@ -48,9 +44,7 @@ with col2:
 
 st.markdown("---")
 
-# ============================================================
 # TOP PAGES
-# ============================================================
 
 try:
     if view_type == "Search Only":
@@ -83,7 +77,7 @@ try:
                 orientation='h'
             )
             
-            # ---- INSIGHTS ----
+            #  INSIGHTS 
             st.markdown("---")
             st.subheader("📊 Page Insights")
             
@@ -129,7 +123,7 @@ try:
             
             render_metric_table(display_ga4, "Pages with Engagement Metrics")
             
-            # ---- MULTI-METRIC ANALYSIS ----
+            #  MULTI-METRIC ANALYSIS 
             st.markdown("---")
             st.subheader("🎯 Multi-Metric Analysis")
             
@@ -155,7 +149,7 @@ try:
                     orientation='h'
                 )
             
-            # ---- HIGH BOUNCE RATE PAGES ----
+            #  HIGH BOUNCE RATE PAGES 
             st.markdown("---")
             st.subheader("⚠️ High Bounce Rate Pages (Optimization Opportunity)")
             

@@ -9,9 +9,8 @@ import pandas as pd
 import streamlit as st
 
 
-# ============================================================
 # KPI METRICS CARDS
-# ============================================================
+
 
 def render_kpi_card(label: str, value: str, change: str = None, icon: str = "📈"):
     """
@@ -62,9 +61,9 @@ def render_kpi_grid(metrics: dict):
             )
 
 
-# ============================================================
+
 # LINE CHARTS
-# ============================================================
+
 
 def render_trend_chart(df: pd.DataFrame, date_col: str = 'date', value_col: str = 'value', title: str = "Trend"):
     """
@@ -104,10 +103,8 @@ def render_trend_chart(df: pd.DataFrame, date_col: str = 'date', value_col: str 
     
     st.plotly_chart(fig, use_container_width=True)
 
+# BAR CHART
 
-# ============================================================
-# BAR CHARTS
-# ============================================================
 
 def render_bar_chart(df: pd.DataFrame, x_col: str, y_col: str, title: str, orientation: str = "v"):
     """
@@ -139,9 +136,8 @@ def render_bar_chart(df: pd.DataFrame, x_col: str, y_col: str, title: str, orien
     st.plotly_chart(fig, use_container_width=True)
 
 
-# ============================================================
-# SCATTER PLOTS
-# ============================================================
+# SCATTER PLOT
+
 
 def render_scatter_chart(df: pd.DataFrame, x_col: str, y_col: str, size_col: str = None, color_col: str = None, title: str = "Scatter"):
     """
@@ -175,9 +171,7 @@ def render_scatter_chart(df: pd.DataFrame, x_col: str, y_col: str, size_col: str
     st.plotly_chart(fig, use_container_width=True)
 
 
-# ============================================================
 # TABLE RENDERING
-# ============================================================
 
 def render_data_table(df: pd.DataFrame, title: str = None, max_rows: int = 20):
     """
