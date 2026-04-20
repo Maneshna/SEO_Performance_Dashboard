@@ -13,9 +13,9 @@ from datetime import datetime, timedelta
 # Path to database file
 DB_PATH = Path(__file__).parent.parent.parent / "data" / "seo_dashboard.db"
 
-# ============================================================
+
 # DATABASE INITIALIZATION
-# ============================================================
+
 
 def init_database():
     """
@@ -26,7 +26,7 @@ def init_database():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     
-    # ---- GSC TABLE (Google Search Console data) ----
+    # (Google Search Console data) 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS gsc_data (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,7 +45,7 @@ def init_database():
     )
     """)
     
-    # ---- GA4 TABLE (Google Analytics 4 data) ----
+    # GA4 TABLE 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS ga4_data (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -65,7 +65,7 @@ def init_database():
     )
     """)
     
-    # ---- METADATA TABLE (for tracking ingestions) ----
+    # METADATA TABLE 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS ingestion_log (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -87,10 +87,8 @@ def init_database():
     conn.close()
     print(f"✓ Database initialized at {DB_PATH}")
 
-
-# ============================================================
 # DATA INSERTION
-# ============================================================
+
 
 def insert_gsc_data(df: pd.DataFrame) -> int:
     """
@@ -165,9 +163,8 @@ def insert_ga4_data(df: pd.DataFrame) -> int:
     return inserted
 
 
-# ============================================================
 # KPI QUERIES (for Overview page)
-# ============================================================
+
 
 def get_kpi_summary(start_date: str, end_date: str, country: str = None, device: str = None) -> Dict:
     """
@@ -275,9 +272,8 @@ def get_bottom_queries(start_date: str, end_date: str, limit: int = 10) -> pd.Da
     return df
 
 
-# ============================================================
 # PAGE QUERIES (for Page Analysis)
-# ============================================================
+
 
 def get_top_pages(start_date: str, end_date: str, limit: int = 20) -> pd.DataFrame:
     """
@@ -336,9 +332,8 @@ def get_pages_with_ga4(start_date: str, end_date: str, limit: int = 20) -> pd.Da
     return df
 
 
-# ============================================================
 # OPPORTUNITY QUERIES (for Opportunities page)
-# ============================================================
+
 
 def get_opportunities(start_date: str, end_date: str, min_impressions: int = 50) -> pd.DataFrame:
     """
@@ -369,9 +364,9 @@ def get_opportunities(start_date: str, end_date: str, min_impressions: int = 50)
     return df
 
 
-# ============================================================
+
 # TREND QUERIES (for Forecasting page)
-# ============================================================
+
 
 def get_daily_trends(start_date: str, end_date: str, metric: str = 'clicks') -> pd.DataFrame:
     """
