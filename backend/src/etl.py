@@ -13,9 +13,8 @@ from datetime import datetime
 from .database import insert_gsc_data, insert_ga4_data, init_database, DB_PATH
 
 
-# ============================================================
+
 # GSC DATA CLEANING & TRANSFORMATION
-# ============================================================
 
 def clean_gsc_data(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -36,7 +35,7 @@ def clean_gsc_data(df: pd.DataFrame) -> pd.DataFrame:
     
     df = df.copy()
     
-    # ---- Column Standardization ----
+    # Column Standardization 
     df.columns = df.columns.str.strip()  # Remove leading/trailing spaces
     
     # Handle different column name variations
@@ -49,7 +48,7 @@ def clean_gsc_data(df: pd.DataFrame) -> pd.DataFrame:
     }
     df = df.rename(columns=col_mapping)
     
-    # ---- Data Type Conversion ----
+    # Data Type Conversion 
     df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d')
     df['Clicks'] = pd.to_numeric(df['Clicks'], errors='coerce').fillna(0).astype(int)
     df['Impressions'] = pd.to_numeric(df['Impressions'], errors='coerce').fillna(0).astype(int)
@@ -60,7 +59,7 @@ def clean_gsc_data(df: pd.DataFrame) -> pd.DataFrame:
     if df['CTR'].max() > 1:  # If values > 1, assume it's percentage
         df['CTR'] = df['CTR'] / 100
     
-    # ---- Data Cleaning ----
+    # Data Cleaning 
     df['Query'] = df['Query'].str.strip()
     df['Page'] = df['Page'].str.strip().str.lower()  # Normalize URLs
     
@@ -69,10 +68,10 @@ def clean_gsc_data(df: pd.DataFrame) -> pd.DataFrame:
     df['Device'] = df.get('Device', 'Desktop').fillna('Desktop')
     df['Search Type'] = df.get('Search Type', 'Web').fillna('Web')
     
-    # ---- Remove Duplicates ----
+    #  Remove Duplicates 
     df = df.drop_duplicates(subset=['Date', 'Query', 'Page', 'Country', 'Device'])
     
-    # ---- Remove Spam/Invalid Data ----
+    # Remove Spam/Invalid Data 
     df = df[df['Page'].str.startswith('http')]  # Only keep valid URLs
     df = df[df['Impressions'] > 0]  # Only keep rows with impressions
     
@@ -97,7 +96,7 @@ def clean_ga4_data(df: pd.DataFrame) -> pd.DataFrame:
     
     df = df.copy()
     
-    # ---- Column Standardization ----
+    # Column Standardization
     df.columns = df.columns.str.strip()
     
     col_mapping = {
@@ -112,7 +111,7 @@ def clean_ga4_data(df: pd.DataFrame) -> pd.DataFrame:
     }
     df = df.rename(columns=col_mapping)
     
-    # ---- Data Type Conversion ----
+    # Data Type Conversion
     df['Date'] = pd.to_datetime(df['Date'], format='%Y-%m-%d')
     df['Sessions'] = pd.to_numeric(df.get('Sessions', 0), errors='coerce').fillna(0).astype(int)
     df['Users'] = pd.to_numeric(df.get('Users', 0), errors='coerce').fillna(0).astype(int)
@@ -143,9 +142,8 @@ def clean_ga4_data(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# ============================================================
+
 # FILE IMPORT HELPERS
-# ============================================================
 
 def load_gsc_csv(file_path: str) -> pd.DataFrame:
     """
@@ -167,9 +165,9 @@ def load_ga4_csv(file_path: str) -> pd.DataFrame:
     return df
 
 
-# ============================================================
+
 # MAIN ETL ORCHESTRATION
-# ============================================================
+
 
 def run_full_etl(gsc_file: str, ga4_file: str = None) -> Tuple[int, int]:
     """
